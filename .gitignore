@@ -1,3 +1,3 @@
 .vscode
-.lock
+Pipfile.lock
 jung-dongs.json
