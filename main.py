@@ -22,16 +22,14 @@ def get_dongs(url):
 
 
 def extract_dongs(content):
-    dongs = []
+    dongs = {}
     soup = BeautifulSoup(content, 'html.parser')
     page = soup.findAll('div', {'class', 'cont_section'})[1:]
     for section in page:
         title = section.find('p', {'class': 'cont_subtit'}).text
         item = section.find('tbody').findAll('tr')
         result = extract_dong(item)
-        dongs.append({
-            title: result
-        })
+        dongs[title] = result
         print(title + ' 정리 완료')
     return dongs
 
